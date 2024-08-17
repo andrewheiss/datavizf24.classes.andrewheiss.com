@@ -1,0 +1,45 @@
+---
+title: "Interactivity"
+subtitle: "Exercise 11 --- PMAP 8551, Fall 2024"
+author: "YOUR NAME HERE"
+date: "DATE GOES HERE"
+date-format: "long"
+format:
+  html:
+    toc: true
+---
+
+---
+
+# Task 1: Reflection
+
+Put your reflection here
+
+
+# Task 2: Interactive plots
+
+```{r}
+#| label: load-libraries-data
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(plotly)
+
+# Load data here
+```
+
+Do the following:
+
+1. Make a plot. Any kind of plot will do (though it might be easiest to work with `geom_point()`).
+
+2. Make the plot interactive with `ggplotly()`. 
+
+3. Make sure the hovering tooltip is more informative than the default.
+
+Good luck and have fun!
+
+
+# Task 3:
+
+Create a Quarto dashboard in a new .qmd file that shows a plot (static or interactive) in at least three chart areas. [See the example for this session](https://datavizf24.classes.andrewheiss.com/example/11-example.html#making-a-dashboard-with-quarto) for resources on creating dashboards in Quarto.
