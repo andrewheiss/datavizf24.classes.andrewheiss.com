@@ -297,7 +297,7 @@
     },
     "V8": {
       "Package": "V8",
-      "Version": "4.4.2",
+      "Version": "5.0.0",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
@@ -306,7 +306,7 @@
         "jsonlite",
         "utils"
       ],
-      "Hash": "ca98390ad1cef2a5a609597b49d3d042"
+      "Hash": "9eb7b2df315593e726b029200fc0276c"
     },
     "WDI": {
       "Package": "WDI",
@@ -1969,15 +1969,18 @@
     },
     "harrypotter": {
       "Package": "harrypotter",
-      "Version": "2.1.1",
-      "Source": "Repository",
-      "Repository": "RSPM",
+      "Version": "0.1.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "harrypotter",
+      "RemoteUsername": "bradleyboehmke",
+      "RemotePkgRef": "bradleyboehmke/harrypotter",
+      "RemoteSha": "51f714619350e6685534c8a9c892ff1870e56558",
       "Requirements": [
-        "R",
-        "ggplot2",
-        "gridExtra"
+        "R"
       ],
-      "Hash": "5672ac02f15a6d6462b8d60d0cc63fc8"
+      "Hash": "a8e09808f88664fc4a7f6383c90103ce"
     },
     "haven": {
       "Package": "haven",
@@ -2305,6 +2308,16 @@
         "xml2"
       ],
       "Hash": "532d16304274c23c8563f94b79351c86"
+    },
+    "katex": {
+      "Package": "katex",
+      "Version": "1.4.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "V8"
+      ],
+      "Hash": "5705835b03d2678cbfa51e9845bd4032"
     },
     "knitr": {
       "Package": "knitr",
@@ -3538,9 +3551,9 @@
     },
     "sf": {
       "Package": "sf",
-      "Version": "1.0-16",
+      "Version": "1.0-17",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "https://r-spatial.r-universe.dev",
       "Requirements": [
         "DBI",
         "R",
@@ -3557,7 +3570,7 @@
         "units",
         "utils"
       ],
-      "Hash": "ad57b543f7c3fca05213ba78ff63df9b"
+      "Hash": "453a7d0263eae87a7831242a74fe9b60"
     },
     "shape": {
       "Package": "shape",
