@@ -62,7 +62,7 @@ xaringan_to_pdf <- function(slide_path) {
   path_sans_ext <- tools::file_path_sans_ext(slide_path)
 
   if (path_sans_ext == "slides/12-slides") {
-    return(here::here("slides/12-slides.pdf"))
+    return(here_rel("slides/12-slides.pdf"))
   }
   
   renderthis::to_pdf(

@@ -17,7 +17,6 @@ output:
       ratio: "16:9"
       navigation:
         scroll: false
-      # beforeInit: "libs/offline-mathjax.js"
 ---
 
 ```{r setup, include=FALSE}
