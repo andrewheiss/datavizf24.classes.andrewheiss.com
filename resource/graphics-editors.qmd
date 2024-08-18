@@ -56,58 +56,26 @@ But you can't beat free.
 
 ```{r comparison-table, echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
-library(gt)
+library(tinytable)
 
 tribble(
-  ~file, ~Adobe, ~Affinity, ~foss,
+  ~`File type`, ~Adobe, ~Affinity, ~`Open source`,
   "Bitmaps", "[Photoshop](https://www.adobe.com/products/photoshop.html)", "[Photo](https://affinity.serif.com/en-us/photo/)", "[GIMP](https://www.gimp.org/)",
   "Vectors", "[Illustrator](https://www.adobe.com/products/illustrator.html)", "[Designer](https://affinity.serif.com/en-us/designer/)", "[Inkscape](https://inkscape.org/)",
   "Layout", "[InDesign](https://www.adobe.com/products/indesign.html)", "[Publisher](https://affinity.serif.com/en-us/publisher/)", "[Scribus](https://www.scribus.net/)",
   "Cost", "$$$<br><span class='smaller-note'>Monthly Creative Cloud subscription</span>", "$<br><span class='smaller-note'>One-time purchase</span>", "Free",
   "Notes", "Industry standard", "", "Free, but rough learning curve"
-) |> 
-  gt() |> 
-  cols_label(
-    file = "File type",
-    foss = "Open source"
-  ) |> 
-  fmt_markdown(columns = everything()) |> 
-    tab_style(
-    locations = cells_column_labels(),
-    style = list(
-      cell_text(weight = "bold")
-    )
-  ) |> 
-  cols_align(
-    columns = c(Adobe, Affinity, foss),
-    align = "center"
-  ) |> 
-  tab_style(
-    style = "vertical-align:top;",
-    locations = cells_body(
-      columns = everything()
-    )
-  ) |> 
-  tab_style(
-    style = cell_borders(sides = "top", color = "#D3D3D3", weight = px(3)),
-    locations = cells_body(rows = 4)
-  ) |> 
-  opt_css(
-    css = "
+) |>
+  tt(width = c(15, 85 / 3, 85 / 3, 85 / 3)) |>
+  format_tt(j = 2:4, markdown = TRUE) |>
+  style_tt(j = 1, bold = TRUE) |>
+  style_tt(i = 4, line = "t", line_color = "#D3D3D3", line_width = 0.1) |> 
+style_tt(
+  j = 2:4,
+  align = "c",
+  bootstrap_css_rule = "
     .smaller-note {
       font-size: 0.7em;
     }"
-  ) |> 
-  cols_width(
-    file ~ pct(15),
-    Adobe ~ pct(85/3),
-    Affinity ~ pct(85/3),
-    foss ~ pct(85/3)
-  ) |> 
-  opt_vertical_padding(scale = 1) |> 
-  opt_table_font(font = "Barlow") |> 
-  tab_options(
-    table.font.size = px(19)
-  )
+)
 ```
-
