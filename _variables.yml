@@ -19,11 +19,11 @@ course:
   days: "Any day"
   time: "Asynchronous"
   location: "Anywhere"
-  dates: "June 3–July 23, 2024"
+  dates: "August 26–December 16, 2024"
   github: "https://www.github.com/andrewheiss/datavizf24.classes.andrewheiss.com"
   url: "https://datavizf24.classes.andrewheiss.com"
   copyright_year: "2024"
-  slack: "https://gsudatavizs2024.slack.com"
+  slack: "https://gsudatavizf2024.slack.com"
 
 university:
   name: Georgia State University
