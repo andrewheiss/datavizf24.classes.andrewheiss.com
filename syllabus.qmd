@@ -119,7 +119,7 @@ Data science and statistical programming can be difficult. Computers are stupid 
 
 Fortunately there are tons of online resources to help you with this. Two of the most important are [StackOverflow](https://stackoverflow.com/) (a Q&A site with hundreds of thousands of answers to all sorts of programming questions) and [Posit Community](https://community.rstudio.com/) (a forum specifically designed for people using RStudio and the tidyverse (i.e. you)).
 
-If you use Mastodon or Twitter, post R-related questions and content with [#rstats](https://twitter.com/search?q=%23rstats). The community there is exceptionally generous and helpful.
+If you use Bluesky or Mastodon or Threads or LinkedIn, post R-related questions and content with `#rstats`. The R community is exceptionally generous and helpful.
 
 [ChatGPT](https://chat.openai.com/) is generally relatively okay with R questions, but it will often hallucinate responses—it really likes to imagine packages that don't exist and then give you answers with them. Think of it as glorified autocomplete. [I'd encourage you to read the first few paragraphs here](https://www.infoworld.com/article/3694611/8-chatgpt-tools-for-r-programming.html) about a few important things to keep in mind when using ChatGPT, though.
 
