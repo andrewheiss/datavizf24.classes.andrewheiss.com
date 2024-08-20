@@ -41,7 +41,7 @@ Making a good reprex is tricky, but it's a very valuable skill to know (regardle
 ::: {.callout-warning}
 #### This is not a required list!
 
-Remember, you don't need to answer all of these—or even any of them! These are just here to help guide your thinking. **Write about whatever you want.**
+Remember, you don't need to answer all of these—or even any of them! These are just here to help guide your thinking. **All that matters is that you show good engagement with the readings.**
 :::
 
 - These readings all show a ton of new ways to present comparisons. Which ones are your favorite? Which ones didn't quite click with you? In what situations are some more appropriate than others?
