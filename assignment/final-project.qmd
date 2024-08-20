@@ -75,9 +75,9 @@ Upload the following files to iCollege:
 
 **No late work will be accepted for this project since it's the last project and it counts as your final.**
 
-I will use [this rubric](/files/projects/final-project-rubric.xlsx) to grade the final product:
+I will use [this rubric](/files/projects/final-project_rubric.xlsx) to grade the final product:
 
-- [{{< fa file-excel >}} `final-project-rubric.xlsx`](/files/projects/final-project-rubric.xlsx)
+- [{{< fa file-excel >}} `final-project_rubric.xlsx`](/files/projects/final-project_rubric.xlsx)
 
 I am happy to give feedback and help along the way—please don't hesitate to get help! My goal is for you to have a beautiful graphic in the end that you'll want to show off to all your friends, family, neighbors, employers, and strangers on the street—I'm not trying to trip you up or give you trick questions!
 

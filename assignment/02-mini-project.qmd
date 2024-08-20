@@ -75,9 +75,9 @@ Here's what you need to do:
     2. A standalone PNG version of your graphic. You'll export this from Illustrator or Inkscape.
     3. A standalone PDF version of your graphic. You'll export this from Illustrator or Inkscape.
 
-You will be graded based on completion using the standard ✓ system, but I'll provide comments on how you use R and {ggplot2}, how well you apply the principles of CRAP, *The Truthful Art*, and *Effective Data Visualization*, and how appropriate the graph is for the data and the story you're telling. I will use [this rubric](/files/projects/mini-project-2-rubric.pdf) to make comments and provide you with a simulated grade.
+You will be graded based on completion using the standard ✓ system, but I'll provide comments on how you use R and {ggplot2}, how well you apply the principles of CRAP, *The Truthful Art*, and *Effective Data Visualization*, and how appropriate the graph is for the data and the story you're telling. I will use [this rubric](/files/projects/02-mini-project_rubric.xlsx) to make comments and provide you with a simulated grade.
 
-- [{{< fa file-pdf >}} `mini-project-2-rubric.pdf`](/files/projects/mini-project-2-rubric.pdf)
+- [{{< fa file-excel >}} `02-mini-project_rubric.xlsx`](/files/projects/02-mini-project_rubric.xlsx)
 
 For this assignment, I am less concerned with the code (that's why I gave most of it to you), and more concerned with the *design*. Choose good colors based on palettes. Choose good, clean fonts. Use the heck out of `theme()`. Add informative design elements in Illustrator/Inkscape/Affinity Designer. Make it look beautiful and CRAPpy. Refer to [the design resources here](/resource/design.qmd).
 
