@@ -53,9 +53,9 @@ lotr <- lotr_wide |>
 ```
 
 
-## Race
+## Species
 
-Does a certain race dominate (i.e. speak the most) the entire trilogy? (hint: group by `Race`)
+Does a certain species dominate (i.e. speak the most) the entire trilogy? (hint: group by `Species`)
 
 ```{r}
 # Do stuff here
@@ -71,20 +71,20 @@ Does a certain gender dominate a movie? (lolz of course it does, but still, grap
 ```
 
 
-## Race and film
+## Species and film
 
-Does the dominant race differ across the three movies? (Hint: group by both `Race` and `Film`.) Experiment with filling by `Race` or `Film` and faceting by `Race` or `Film`.
+Does the dominant species differ across the three movies? (Hint: group by both `Species` and `Film`.) Experiment with filling by `Species` or `Film` and faceting by `Species` or `Film`.
 
 ```{r}
 # Do stuff here
 ```
 
 
-## Race and gender and film
+## Species and gender and film
 
-Create a plot that visualizes the number of words spoken by race, gender, and film simultaneously. Use the complete tidy `lotr` data frame. You don't need to create a new summarized dataset (with `group_by(Race, Gender, Film)`) because the original data already has a row for each of those (you could make a summarized dataset, but it would be identical to the full version).
+Create a plot that visualizes the number of words spoken by species, gender, and film simultaneously. Use the complete tidy `lotr` data frame. You don't need to create a new summarized dataset (with `group_by(Species, Gender, Film)`) because the original data already has a row for each of those (you could make a summarized dataset, but it would be identical to the full version).
 
-You need to show `Race`, `Gender`, and `Film` at the same time, but you only have two possible aesthetics (`x` and `fill`), so you'll also need to facet by the third. Play around with different combinations (e.g. try `x = Race`, then `x = Film`) until you find one that tells the clearest story. For fun, add a `labs()` layer to add a title and subtitle and caption.
+You need to show `Species`, `Gender`, and `Film` at the same time, but you only have two possible aesthetics (`x` and `fill`), so you'll also need to facet by the third. Play around with different combinations (e.g. try `x = Species`, then `x = Film`) until you find one that tells the clearest story. For fun, add a `labs()` layer to add a title and subtitle and caption.
 
 ```{r}
 # Do stuff here
