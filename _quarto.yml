@@ -258,6 +258,7 @@ website:
         - section: "Resources"
           contents:
             - resource/index.qmd
+            - resource/ai-bs.qmd
             - resource/colors.qmd
             - resource/design.qmd
             - resource/graphics-editors.qmd

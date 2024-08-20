@@ -23,6 +23,8 @@ slide_details <- tibble::tribble(
 ## Readings
 
 - The [syllabus](/syllabus.qmd), [content](/content/index.qmd), [lessons](/lesson/index.qmd), [examples](/example/index.qmd), and [assignments](/assignment/index.qmd) pages for this class
+- {{< fa arrow-up-right-from-square >}} [AI, LLMs, and BS](/resource/ai-bs.qmd)
+- {{< fa file-pdf >}}&ensp;[@HicksHumphriesSlater:2024]
 - {{< fa podcast >}} Tim Harford, ["Florence Nightingale: Data Viz Pioneer,"](https://99percentinvisible.org/episode/florence-nightingale-data-viz-pioneer/) *99% Invisible*, episode 433, March 2, 2021 (*this is a podcast; listen to it in your browser or use an app like [Overcast](https://overcast.fm/) or [Spotify](https://spotify.com/)*)
 - {{< fa book >}} [Chapter 1](http://socviz.co/lookatdata.html) in *Data Visualization* [@Healy:2018]
 - {{< fa book >}} Chapters 2 and 3 in *The Truthful Art* [@Cairo:2016] (*skim the introduction and chapter 1*)
@@ -34,7 +36,7 @@ slide_details <- tibble::tribble(
 ::: {.callout-warning}
 #### This is not a required list!
 
-Remember, you don't need to answer all of these—or even any of them! These are just here to help guide your thinking. **Write about whatever you want.**
+Remember, you don't need to answer all of these—or even any of them! These are just here to help guide your thinking. All that matters is that you show good engagement with the readings.
 :::
 
 - How do we know what is true?

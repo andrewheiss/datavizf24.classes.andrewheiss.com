@@ -1,0 +1,99 @@
+---
+title: "AI, LLMs, and BS"
+reference-location: margin
+references:
+- id: Frankfurt:2005
+  author:
+    - family: Frankfurt
+      given: Harry G.
+  citation-key: Frankfurt:2005
+  event-place: Princeton
+  issued:
+    - year: 2005
+  publisher: Princeton University Press
+  publisher-place: Princeton
+  title: On bullshit
+  type: book
+---
+
+I *highly recommend* **not** using ChatGPT or similar large language models (LLMs) in this class.
+
+I am not opposed to LLMs in many situations. I use [GitHub Copilot](https://github.com/features/copilot) for computer programming-related tasks all the time, and I have ongoing research where we're experimenting with using [Meta's Ollama](https://ollama.com/) to try automatically categorizing thousands of nonprofit mission statements. Using LLMs requires careful skill and attention and practice, and they tend to be useful only in specific limited cases.
+
+## Writing and thinking
+
+I am deeply opposed to LLMs for writing.
+
+Google Docs and Microsoft Word now have built in text-generation tools where you can start writing a sentence and let the machine take over the rest. ChatGPT and other services let you generate multi-paragraph essays with plausible-looking text. **Please do not use these.**
+
+There's a reason most university classes require some sort of writing, like reading reflections, essay questions, and research papers. [The process of writing is actually the process of thinking](https://www.latimes.com/opinion/story/2023-06-20/google-microsoft-chatgpt-ai-writing-assistants-artificial-intelligence):
+
+> Writing is hard because the process of getting something onto the page helps us figure out what we think—about a topic, a problem or an idea. If we turn to AI to do the writing, we're not going to be doing the thinking either. That may not matter if you're writing an email to set up a meeting, but it will matter if you're writing a business plan, a policy statement or a court case. [@Rosenzweig:2023]
+
+Using LLMs and AI to generate a reflection on the week's readings will not help you think through the materials. You can create text and meet the suggested word count and finish the assignment, but the text will be meaningless. There's an official philosophical term for this kind of writing: [bullshit](https://doi.org/10.1007/s10676-024-09775-5) [@HicksHumphriesSlater:2024; @Frankfurt:2005].^[I'm a super straight-laced Mormon and, like, never ever swear or curse, but in this case, the word has a formal philosophical meaning [@Frankfurt:2005], so it doesn't count :)]
+
+## Bullshit
+
+Philosophical bullshit is "speech or text produced without concern for its truth" [@HicksHumphriesSlater:2024, p. 2]. Bullshit isn't truth, but it's also not lies (i.e. the opposite of truth). It's text that exists to make the author sound like they know what they're talking about. A bullshitter doesn't care if the text is true or not—truth isn't even part of the equation:
+
+> [A bullshitter] does not reject the authority of the truth, as the liar does, and oppose himself to it. He pays no attention to it at all [@Frankfurt:2005, p. 61].
+
+LLMs and AI systems like ChatGPT, Gemini, Claude, and so on are bullshit machines. That might sound hyperbolic, but at a technological level, that's literally what they do. LLMs use fancy statistics to take an initial prompt or starting phrase and then generate the most plausible words or phrases that are likely to follow. They don't care whether the text it creates is true—they only care about whether it looks plausible. 
+
+This is why these systems will generate citations to articles that don't exist, or generate facts that aren't true, or fail at simple math questions. They aren't meant to tell the truth. Their only goal is to create stuff that looks plausible:
+
+> The problem here isn't that large language models hallucinate, lie, or misrepresent the world in some way. It’s that they are not designed to represent the world at all; instead, they are designed to convey convincing lines of text. [@HicksHumphriesSlater:2024, p. 3]
+
+**Do not replace the important work of writing with AI bullshit slop.** Remember that the point of writing is to help crystalize your thinking. Chugging out words that make it look like you read and understood the content will not help you learn.
+
+A key theme of the class is the search for truth. Generating useless content will not help with that.
+
+In your weekly reflections and assignments, I want to see good engagement with the readings. I want to see your thinking process. I want to see you make connections between the readings. I want to see your personal insights. I don't want to see a bunch of words that look like a human wrote them. That's not useful for future-you. That's not useful for me. That's a waste of time.
+
+I will not spend time trying to guess if your assignments are AI-generated.^[There are tools that purport to be able to identify the percentage of a given text that is AI, but they do not work and result in all sorts of false positives.] If you do turn in AI-produced content, I won't automatically give you a zero. I'll grade your work based on its own merits. I've found that AI-produced content will typically earn a ✓− (50%) or lower on my check-based grading system without me even needing to look for clues that it might have come from an LLM. Remember that text generated by these platforms is philosophical bullshit. Since it has nothing to do with truth, it will not—by definition—earn good grades.
+
+## What about code?
+
+I am less opposed to LLMs for coding. Kind of.
+
+I often use LLMs like ChatGPT and [GitHub Copilot](https://github.com/features/copilot) in my own work (GitHub Copilot in particular is *really really good* for code—it's better than ChatGPT, and free for students). These tools are phenomenal resources for coding ***when you already know what you are doing***.
+
+However, using ChatGPT and other LLMs when *learning* R is **actually really detrimental to learning,** especially if you just copy/paste directly from what it spits out. It will give you code that is wrong or that contains extra stuff you don't need, and if you don't know enough of the language you're working with, you won't understand why or what's going on.
+
+When you ask an LLM for help with code, it will spit out a plausible-looking answer based on a vast trove of training data—millions of lines of code that people have posted to GitHub. The answer that it gives represents a sort of amalgamated average of everyone else's code. Often it'll be right and useful. Often it'll be wrong and will send you down a path of broken code and you'll spend hours stuck on a problem because the code you're working with can't work.
+
+Remember that LLMs are (philosophical) bullshit machines. They don't care if the answer if gives you is wrong or right. They don't care if the code runs or not. All they care about is if the answer looks plausible.
+
+Using LLMs with R requires a good baseline knowledge of R to actually be useful. A good analogy for this is with recipes. ChatGPT is really confident at spitting out plausible-looking recipes. A few months ago, for fun, I asked it to give me a cookie recipe. I got back something with flour, eggs, sugar, and all other standard-looking ingredients, but it also said to include 3/4 cup of baking powder. That's wild and obviously wrong, but I only knew that because I've made cookies before. I've seen [other AI-generated recipes](https://www.aiweirdness.com/ai-recipes-are-bad-and-a-proposal-20-01-31/) that call for a cup of horseradish in brownies or 21 pounds of cabbage for a pork dish. In May 2024, [Google's AI recommended adding glue to pizza sauce to stop the cheese from sliding off](https://www.businessinsider.com/google-ai-glue-pizza-i-tried-it-2024-5). Again, to people who have cooked before, these are all obviously wrong (and dangerous in the case of the glue!), but to a complete beginner, these look like plausible instructions.
+
+I can typically tell when you submit code generated by an LLM; it has a certain style to it and often gives you extraneous code that you don't actually need to use. Like this—this comes right from ChatGPT:
+
+```r
+# Load the required libraries
+library(dplyr)
+
+# Read a file named cars.csv into the R session
+data <- read.csv("data/cars.csv")
+
+# Calculate the average value of cty by class
+average_cty_by_class <- data %>%
+  group_by(class) %>%
+  summarize(average_cty = mean(cty, na.rm = TRUE))
+
+# Show the results
+print(average_cty_by_class)
+```
+
+::: {.callout-caution}
+### The "tells"
+
+Here's how I can tell that that ↑ code comes from an LLM:
+
+- Comments at every stage
+- `read.csv()` instead of `read_csv()`,
+- The older `%>%` pipe instead of the newer `|>` pipe
+- `na.rm = TRUE` inside `mean()`
+- Using `print()` to show the created object
+:::
+
+In general, **don't ever just copy/paste from ChatGPT and hope it runs.** If you do use these tools, make sure you look through the code and see what it says first—try to understand what each part is doing. For example, if it spits out `summarize(avg_mpg = mean(cty, na.rm = TRUE))`, and you don't know what that `na.rm = TRUE` thing means, look at the help page for `mean()` and see what `na.rm` actually does so you can decide if you really need to use it or not.
