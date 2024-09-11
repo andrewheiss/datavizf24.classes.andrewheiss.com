@@ -1,0 +1,197 @@
+---
+title: "Getting help more efficiently"
+date: "2024-09-11T02:02"
+categories: [advice]
+engine: knitr
+---
+
+```{css}
+#| echo: false
+
+.thread {
+    margin-bottom: 1rem;
+}
+
+.thread p {
+    margin-bottom: 0rem;
+}
+
+.thread p:not(:first-child) {
+    border-left: 2px solid black;
+    padding-left: 1rem;
+}
+```
+
+As I mention throughout the syllabus and in the instructions for every assignment, I want you to succeed in this class! The best way to do that is to get help when you're stuck. Remember the 30-minute rule!
+
+::: {.callout-tip}
+### The 30-minute rule
+
+If you're stuck on an issue for more than 30 minutes, **stop**, take a break, and ask for help somewhere.
+:::
+
+[In an earlier announcement, I included some guidelines](/news/2024-08-26_reaching-out-when-stuck.qmd) for getting help online via Slack, e-mail, and Webex.
+
+I have a few other quick tips for getting help quickly and efficiently:
+
+### High resolution questions
+
+When asking questions on Slack, try asking with as complete information as possible. Some people call this [high resolution writing](https://chriscoyier.net/2022/12/28/watch-out-for-low-resolution-writing/) (vs. low resolution writing), where messages contain a lot of detail and context.
+
+For instance, here's an example of **low resolution** question-asking:
+
+:::: {.callout-note icon=false}
+### `#help`
+
+**Person A:** I'm stuck on Exercise X
+
+**Person B:** Ok cool—what's the problem you're having?
+
+::: {.text-center}
+*(10 minutes later…)*
+:::
+
+**Person A:** My code isn't running
+
+**Person B:** What does your code look like?
+
+::: {.text-center}
+*(10 minutes later…)*
+:::
+
+**Person A:** It's giving me an error
+
+**Person A:** ggplot() + geom_point()
+
+**Person B:** What is the error? What do you have in your code before that one line?
+
+::: {.text-center}
+*(20 minutes later…)*
+:::
+
+**Person A:** [*Phone photo of part of the screen*]
+
+**Person B:** It might be an issue with X or Y, but it's hard to see…
+
+::: {.text-center}
+*(10 minutes later…)*
+:::
+
+**Person A:** [*Phone photo of a different part of the screen*]
+
+::: {.text-center}
+(*…and so on until the issue is figured out*)
+:::
+::::
+
+Phew. That process takes forever and is incredibly slow.
+
+Here's a **high resolution** version of the same situation:
+
+::: {.callout-note icon=false}
+### `#help`
+
+**Person A:** I'm stuck on Exercise X. For some reason, my code isn't running and it's giving me an error that says `Error in ggplot(): could not find function "ggplot"`. It happens after I run this code:
+
+```r
+ggplot(data = mpg, aes(x = hwy, y = displ)) + 
+  geom_point()
+```
+
+Earlier in the document I have this code: `library(tidyverse)`, but when I run that, I get this error: `Error in library(): there is no package called tidyverse’`. 
+
+Does anyone know what might be going on?
+
+**Person B:** Ah cool, that's an easy fix! That just means that you don't have the tidyverse library installed on your computer. You can fix it by either using the Packages panel in RStudio to install it, or run this in your console:
+
+```r
+install.packages("tidyverse")
+```
+
+↑ That should fix things
+
+::: {.text-center}
+*(10 minutes later…)*
+:::
+
+**Person A:** That worked—thanks!
+:::
+
+That second example is much longer than just saying "my code isn't working", but it gets an answer *significantly* faster because it contains complete details to help someone else help.
+
+**Embrace high resolution writing.**
+
+### Unanswered questions
+
+Stuff like this happens all the time on websites where people ask for help (and in Slack):
+
+::: {.callout-note icon=false}
+### `#help`
+
+**Person A:** I'm stuck with this issue and can't get X to work
+
+::: {.text-center}
+*(10 minutes later…)*
+:::
+
+**Person A:** Oh wait, never mind, I fixed it!
+
+::: {.text-center}
+*(Person A disappears…)*
+:::
+:::
+
+If you ask a question and then figure out the answer yourself, **let us know how you did it!** It's likely that other people have similar questions and issues, and seeing solved-but-unexplained questions is sad:
+
+![[xkcd #979: "Wisdom of the Ancients"](https://xkcd.com/979/)](img/wisdom_of_the_ancients.png)
+
+### Use Slack threads
+
+When you ask a question on Slack, I will include my response in a thread to that question. This helps keep the `#help` channel uncluttered. When you respond—or if you want to include extra details in another message after the initial question—please include your response in that thread.
+
+Use the "Reply in thread" button that appears in the little toolbar you see when hovering over a Slack message:
+
+![](img/reply-in-thread.png){width="60%" fig-align="center"}
+
+In general, we should all try to keep threads focused on single questions. If you have a different question, you can start a new thread.
+
+:::: {.callout-note icon=false}
+### `#help`
+
+::: {.thread}
+**Person A:** I have a question about Exercise X. [*A high resolution question with lots of details…*]
+
+**Person B:** Blah, blah, blah
+
+**Person C:** Blah, blah, blah
+
+**Person A:** Blah, blah, blah
+:::
+
+::: {.thread}
+**Person A:** Oh also, I was wondering about this issue with Exercise Y.
+
+**Person A:** Here's what's happening: [*Another good high resolution question*]
+
+**Person C:** Blah, blah, blah
+
+**Person A:** Blah, blah, blah
+
+**Person B:** Blah, blah, blah
+:::
+::::
+
+
+### Calendly + Webex appointments
+
+You can meet with me for [student hours](/syllabus.qmd#student-hours) by signing up for an appointment [at my Calendly page](https://calendly.com/andrewheiss/). The link is also accessible at the [top of the syllabus page](/syllabus.qmd) and on [the main homepage](/) of the class site.
+
+Calendly connects to my personal and work calendars and should only show times when I'm available. If you sign up for an online appointment, you'll receive an e-mail with a special Webex link that you can use for the meeting.
+
+**Make sure the e-mail you use is correct**—if you don't get a confirmation e-mail with the meeting details, it's likely that there was a typo in your e-mail address.
+
+If you need to change or cancel the appointment, you can do that using a link in the confirmation e-mail.
+
+On rare occasions, I will cancel an appointment from my end. This only happens if I forget to put a work or personal appointment on my calendar, so Calendly thinks I'm free when I'm really not. (This happened on Labor Day last week actually—Calendly thought I was available even though I was off hiking with my family, since I forgot to block off that time).
+
+If I cancel an appointment with you, **don't worry**. I don't hate you or anything. I'm not trying to avoid you. I most likely had some accidental or unforeseen scheduling conflict. In my cancellation note, I'll say something like "Oh no! I'm so sorry! Can you sign up for a different time please?!". Do that :)
