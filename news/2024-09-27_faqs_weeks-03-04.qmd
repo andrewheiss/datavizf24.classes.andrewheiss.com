@@ -25,7 +25,7 @@ Many of you had similar questions and I left lots of similar comments and tips o
 
 ### Why are my axis labels all crowded and on top of each other? How do I fix that?
 
-This was a common problem with both the LOTR data and the essential construction data—categories on the x-axis would often overlap when you knit your document. That’s because there’s not enough room to fit them all comfortably in a standard image size. Fortunately there are a few quick and easy ways to fix this, such as changing the width of the image (see below), rotating the labels, dodging the labels, or (my favorite!) automatically adding line breaks to the labels so they don’t overlap. [This blog post](https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/) (by me) has super quick examples of all these different (easy!) approaches.
+This was a common problem with both the LOTR data and the essential construction data—categories on the x-axis would often overlap when you render your document. That’s because there’s not enough room to fit them all comfortably in a standard image size. Fortunately there are a few quick and easy ways to fix this, such as changing the width of the image (see below), rotating the labels, dodging the labels, or (my favorite!) automatically adding line breaks to the labels so they don’t overlap. [This blog post](https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/) (by me) has super quick examples of all these different (easy!) approaches.
 
 
 ### How can I add a line break to the text in my plot?
@@ -67,7 +67,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) +
   geom_point()
 ```
 
-The dimensions are also reflected in RStudio itself when you’re working with inline images, so it’s easy to tinker with different values and rerun the chunk without needing to re-knit the whole document over and over again:
+The dimensions are also reflected in RStudio itself when you’re working with inline images, so it’s easy to tinker with different values and rerun the chunk without needing to re-render the whole document over and over again:
 
 ![A 3″×5″ image in RStudio](img/fig-dimensions-rstudio.png){width=90%}
 
@@ -318,7 +318,7 @@ Remember, when you see red text in the console, don’t panic. It doesn’t nece
 
 ### How can I hide warnings and messages?
 
-In general, you'll want to try to deal with errors and warnings, often by adjusting or clarifying something in your code. In your final knitted documents, you typically want to have nice clean output without any warnings or messages. You can fix these warnings and messages in a couple ways: (1) change your code to deal with them, or (2) just hide them.
+In general, you'll want to try to deal with errors and warnings, often by adjusting or clarifying something in your code. In your final rendered documents, you typically want to have nice clean output without any warnings or messages. You can fix these warnings and messages in a couple ways: (1) change your code to deal with them, or (2) just hide them.
 
 For instance, if you do something like this to turn off the fill legend:
 
@@ -364,7 +364,7 @@ library(tidyverse)
 ## ℹ Use the conflicted package to force all conflicts to become errors
 ```
 
-That's all helpful information—it tells you that R loaded 9 related packages for you ({ggplot2}, {dplyr}, etc.). But none of that needs to be in a knitted document. You can turn off those messages and warnings using chunk options:
+That's all helpful information—it tells you that R loaded 9 related packages for you ({ggplot2}, {dplyr}, etc.). But none of that needs to be in a rendered document. You can turn off those messages and warnings using chunk options:
 
 ```{r}
 #| echo: fenced
@@ -450,7 +450,7 @@ ggplot(
 
 So why go through all the hassle of grouping and summarizing?
 
-The two plots really do look the same, but it's an optical illusion. In the plot that uses the full `lotr` data, each of those species-based bar segments is actually three segments—one for each of the genders. You can see this if you add a white border in `geom_col()`:
+The two plots really do look the same, but it's an optical illusion. In the plot that uses the full `lotr` data, each of those species-based bar segments is actually two segments—one for each of the genders. You can see this if you add a white border in `geom_col()`:
 
 ```{r}
 #| label: plot-species-film-bad-border
