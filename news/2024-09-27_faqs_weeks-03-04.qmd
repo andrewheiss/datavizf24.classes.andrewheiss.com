@@ -463,7 +463,7 @@ ggplot(
   geom_col(color = "white")
 ```
 
-Look at the top left corner, for instance, with the segment for elves in the *Fellowship of the Ring*. There are two subsegments: one for 1,229 female elf words^[Arwen] and one for 971 male elf words.^[Elrond and Legolas]
+Look at the top left corner, for instance, with the segment for elves in the *Fellowship of the Ring*. There are two subsegments: one for 1,229 female elf words^[Arwen and Galadriel] and one for 971 male elf words.^[Elrond and Legolas]
 
 ```{r}
 #| label: calc-elf-fellowship-full
