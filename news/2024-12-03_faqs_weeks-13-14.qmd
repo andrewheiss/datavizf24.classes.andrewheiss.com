@@ -288,6 +288,95 @@ Much better!
 
 This same approach works for the [{scico} color maps](/resource/colors.qmd#scientific-colour-maps) too.
 
+---
+
+If you don't want to truncate the color range, you can also try another approach—add a thin border around the bars:
+
+```{r}
+#| out-width: 80%
+ggplot(plot_data, aes(x = continent, y = n, fill = continent)) +
+  geom_col(color = "black", linewidth = 0.2) +
+  scale_fill_viridis_d(option = "magma") +
+  labs(title = "magma with a border") +
+  theme_bw()
+```
+
+This is easy with area-based geoms like `geom_col()` and `geom_histogram()`, since those can take both fill (inside of the bar) and color (border of the bar) aesthetics.
+
+If you're using `geom_point()`, though, those shapes by default only use the color aesthetic. Fill doesn't do anything:
+
+::: {.panel-tabset}
+### `color = continent`
+
+Phew, those European points are *really* hard to see
+
+```{r}
+#| out-width: 80%
+
+gapminder |> 
+  filter(year == 2002, continent != "Oceania") |> 
+  ggplot(aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point(size = 2) +
+  scale_x_log10() +
+  scale_color_viridis_d(option = "magma") +
+  labs(title = "magma") +
+  theme_bw()
+```
+
+### `fill = continent` doesn't work
+
+If we fill by continent, the points are all the same. By default, point shapes can only be colored, not filled.
+
+```{r}
+#| out-width: 80%
+
+gapminder |> 
+  filter(year == 2002, continent != "Oceania") |> 
+  ggplot(aes(x = gdpPercap, y = lifeExp, fill = continent)) +
+  geom_point(size = 2) +
+  scale_x_log10() +
+  scale_fill_viridis_d(option = "magma") +
+  labs(title = "magma") +
+  theme_bw()
+```
+
+:::
+
+R and ggplot have 26 possible shapes that you can use, and they're numbered 0–25. You can see what they are in the documentation if you run `?pch` in the console, which (maybe??) stands for "point character" (I think??):
+
+```{r}
+#| echo: false
+#| fig-width: 7
+#| fig-height: 1.5
+#| out-width: 100%
+expand_grid(y = 2:1, x = 1:13) |> 
+  mutate(pch = 1:n() - 1) |> 
+  ggplot(aes(x = x, y = y, shape = pch)) +
+  geom_point(size = 5, fill = "grey75") +
+  geom_text(aes(label = pch), nudge_y = -0.3) +
+  scale_shape_identity() +
+  coord_cartesian(ylim = c(0.6, 2.2)) +
+  theme_void()
+```
+
+The default shape for `geom_point()` is 19, which is a solid circle. The shapes 0–14 are all hollow, while shapes 15–20 are solid, and they all are controlled with the color aesthetic. Notice how shapes 21–25 are filled with gray, though? That's because they're special. Those shapes can have both color and fill—color controls the border (or stroke), while fill controls the inside. 
+
+If you tell `geom_point()` to use shape 21 (or any of 21–25), you can use both color and fill. If you fill by continent and add a thin black border/stroke around the points, the pale yellow in magma is much more visible and usable:
+
+```{r}
+#| out-width: 80%
+
+gapminder |> 
+  filter(year == 2002, continent != "Oceania") |> 
+  ggplot(aes(x = gdpPercap, y = lifeExp, fill = continent)) +
+  # The stroke argument here controls the thickness of the border
+  geom_point(size = 2, shape = 21, color = "black", stroke = 0.25) +
+  scale_x_log10() +
+  scale_fill_viridis_d(option = "magma") +
+  labs(title = "magma") +
+  theme_bw()
+```
+
 ### Some of the words in my word frequency/tf-idf plot were out of order—how can I fix that?
 
 In the [example for session 14](/example/14-example.qmd#tokens-and-word-counts), I showed the 15 most frequent words in Hamlet, Macbeth, Romeo and Juliet, and King Lear, faceted by play. Only Romeo and Juliet, though, has the words in the correct order. The other plays have strange ordering. Note how "lord" and "king" are weirdly misplaced in Macbeth and Hamlet and how "love" is weirdly misplaced in Hamlet:
