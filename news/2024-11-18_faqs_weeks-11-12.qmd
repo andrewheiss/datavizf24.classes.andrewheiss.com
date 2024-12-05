@@ -298,6 +298,152 @@ ggplot() +
 
 Perfect!
 
+### I tried to make a map of just Europe and it includes more than just Europe?
+
+Yes, welcome to the world of geopolitics :)
+
+Countries often have smaller country-like subunits:
+
+- The United States has the 48 contiguous states + Hawai'i and Alaska + Puerto Rico, the US Virgin Islands, and a bunch of other territories
+- The United Kingdom is technically Great Britain (England, Wales, Scotland, and Northern Ireland) + [a bunch of other islands and territories](https://en.wikipedia.org/wiki/List_of_islands_of_the_United_Kingdom)
+- France controls French Guiana and French Polynesia (which vote in French elections! they're like Hawai'i and Alaska!)
+- Denmark controls Greenland
+- The Netherlands controls Aruba
+- Spain controls the Canary Islands
+- India controls the [Nicobar Islands](https://en.wikipedia.org/wiki/Nicobar_Islands)
+- …and so on!
+
+The Natural Earth Project uses a hierarchy of country units: **Sovereign State > Country > Map unit > Map sub-unit**. [They have a whole table in the documentation](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-details/#ne_table) showing where different country-like units appear in this hierarchy
+
+Some countries are easy to work with and have the same value for each of the levels of the hierarchy. Others are way more complex. Here are some from the Natural Earth documentation:
+
+| Sovereignty | Country | Map unit | Map sub-unit |
+|:-----------------|:-----------------|:-----------------|:-----------------|
+| Algeria | Algeria | Algeria | Algeria |
+| Denmark | Greenland | Greenland | Greenland |
+| United States of America | United States of America | United States of America | Hawaii |
+| United States of America | American Samoa | American Samoa | American Samoa |
+| United States of America | US Minor Outlying Islands | Baker Island | Baker Island |
+| France | French Southern and Antarctic Lands | French Southern and Antarctic Lands | Bassas da India |
+| France | France | French Guiana | French Guiana |
+| Spain | Spain | Spain | Canary Islands |
+
+When you download the [default data from Natural Earth](https://www.naturalearthdata.com/downloads/110m-cultural-vectors/) ("Admin 0 - Countries" > "Download countries"), each row is a *country*. You can also download map unit data ("Admin 0 - Details" > "Download map units") where each row is a *map unit*.
+
+```{r}
+library(rnaturalearth)
+
+# This is the same as ne_110m_admin_0_countries ("Admin 0 - Countries" > "Download countries") 
+# at https://www.naturalearthdata.com/downloads/110m-cultural-vectors/
+world_shapes_countries <- ne_countries(scale = 110) |>
+  filter(iso_a3 != "ATA")
+
+# This is the same as ne_110m_admin_0_map_units ("Admin 0 - Details" > "Download map units") 
+# at https://www.naturalearthdata.com/downloads/110m-cultural-vectors/
+world_shapes_map_units <- ne_countries(scale = 110, type = "map_units") |>
+  filter(iso_a3 != "ATA")
+```
+
+The country-level data includes shapes for the *whole* country, so France includes French Guiana and French Polynesia and part of Antarctica
+
+```{r}
+world_shapes_countries |> 
+  filter(sovereignt == "France") |> 
+  ggplot() + 
+  geom_sf() +
+  labs(title = "All of France") +
+  theme_void() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5))
+```
+
+The map-unit-level data includes separate shapes for each logical unit, so mainland France is different from French Guiana
+
+::: {.panel-tabset}
+### Mainland France alone
+
+```{r}
+world_shapes_map_units |> 
+  filter(geounit == "France") |> 
+  ggplot() + 
+  geom_sf() +
+  labs(title = "Mainland France") +
+  theme_void() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5))
+```
+
+### French Guiana alone
+
+```{r}
+world_shapes_map_units |> 
+  filter(geounit == "French Guiana") |> 
+  ggplot() + 
+  geom_sf() +
+  labs(title = "French Guiana") +
+  theme_void() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5))
+```
+
+:::
+
+If you want to filter the map data to only include Europe, you can (there's a convenient column named `continent`), but it can lead to unexpected output! If you use the country-level data, French Guiana will show up in Europe (since it's part of France):
+
+```{r}
+world_shapes_countries |> 
+  filter(continent == "Europe", sovereignt != "Russia") |> 
+  ggplot() + 
+  geom_sf() +
+  labs(title = "Continental Europe avec French Guiana") +
+  coord_sf(crs = st_crs("EPSG:3035")) +
+  theme_void() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5))
+```
+
+If you use the map-unit-level data, though, French Guiana has its own row and counts as South America instead of Europe, so the filtered data only shows continental Europe:
+
+```{r}
+world_shapes_map_units |> 
+  filter(continent == "Europe", sovereignt != "Russia") |> 
+  ggplot() + 
+  geom_sf() +
+  labs(title = "Continental Europe sans French Guiana") +
+  coord_sf(crs = st_crs("EPSG:3035")) +
+  theme_void() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5))
+```
+
+Alternatively, if you don't want to filter countries out, you can crop the plotting window to zoom in on specific parts of the map. For example, in that Europe map ↑ we removed Russia because it's so wide, but that leaves a weird border on the eastern edge of the map. We're also missing Turkey and North Africa. It might be better to include all those countries and zoom in on continental Europe instead. This also makes it so you don't have to worry about countries and map units.
+
+We can [use a helpful tool from OpenStreetMap](https://www.openstreetmap.org/export#map=4/54.47/12.79) to draw a bounding box on a world map to get coordinates to work with.
+
+![OpenStreetMap's site for exporting bounding box coordinates](img/osm-export.png)
+
+We can then create a [little matrix of coordinates](https://felixanalytix.medium.com/how-to-map-any-region-of-the-world-using-r-programming-bb3c4146f97f). We're ultimately going to use the [ETRS89-extended / LAEA Europe projection](https://epsg.io/3035), which is a good Europe-centric projection, so we'll convert the list of coordinates to that projection.
+
+```{r}
+europe_window <- st_sfc(
+  st_point(c(-12.4, 29.31)),  # left (west), bottom (south)
+  st_point(c(44.74, 64.62)),  # right (east), top (north)
+  crs = st_crs("EPSG:4326")   # WGS 84
+) %>% 
+  st_transform(crs = st_crs("EPSG:3035")) %>%  # ETRS89-extended / LAEA Europe
+  st_coordinates()
+europe_window
+```
+
+Now we can plot the full world map data and use `coord_sf()` to limit it to just this window, which gives us a lot more context, like parts of North Africa and Russia and Turkey:
+
+```{r}
+ggplot() + 
+  geom_sf(data = world_shapes_countries) +
+  coord_sf(
+    crs = st_crs("EPSG:3035"),
+    xlim = europe_window[, "X"],
+    ylim = europe_window[, "Y"],
+    expand = FALSE
+  ) +
+  theme_void()
+```
+
 
 ### Saving data that takes a long time to make
 
